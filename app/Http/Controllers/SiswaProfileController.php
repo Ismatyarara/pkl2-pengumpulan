@@ -11,7 +11,7 @@ class SiswaProfileController extends Controller
  public function index()
 {
     $data = SiswaProfile::with('user')->get();
-    return view('Siswa_profiles.index', compact('data')); 
+    return view('backend.siswa_profiles.index', compact('data')); 
 }
 
 
@@ -19,14 +19,14 @@ class SiswaProfileController extends Controller
 {
     $siswa = SiswaProfile::findOrFail($id);
     $users = User::all();
-    return view('siswa_profiles.edit', compact('siswa', 'users'));
+    return view('backend.siswa_profiles.edit', compact('siswa', 'users'));
 }
 
 
     public function create()
     {
         $users = User::all(); 
-        return view('siswa_profiles.create', compact('users'));
+        return view('backend.siswa_profiles.create', compact('users'));
     }
 
 public function store(Request $request)
@@ -47,14 +47,14 @@ public function store(Request $request)
         'telepon' => $request->telepon,
     ]);
 
-    return redirect()->route('siswa_profiles.index')->with('success', 'Data siswa berhasil ditambahkan!');
+    return redirect()->route('backend.siswa_profiles.index')->with('success', 'Data siswa berhasil ditambahkan!');
 }
 
  public function show($id)
     {
         $siswa =  SiswaProfile::findOrFail($id);
         $users = User::all();
-        return view('siswa_profiles.show', compact('siswa'));
+        return view('backend.siswa_profiles.show', compact('siswa'));
     }
 
 
@@ -71,7 +71,7 @@ public function update(Request $request, $id)
     $siswa = SiswaProfile::findOrFail($id);
     $siswa->update($request->all());
 
-    return redirect()->route('siswa_profiles.index')->with('success', 'Data siswa berhasil diupdate!');
+    return redirect()->route('backend.siswa_profiles.index')->with('success', 'Data siswa berhasil diupdate!');
 }
 
 public function destroy($id)
@@ -79,7 +79,7 @@ public function destroy($id)
     $siswa = SiswaProfile::findOrFail($id);
     $siswa->delete();
 
-    return redirect()->route('siswa_profiles.index')->with('success', 'Data siswa berhasil dihapus!');
+    return redirect()->route('backend.siswa_profiles.index')->with('success', 'Data siswa berhasil dihapus!');
 }
 
 }
