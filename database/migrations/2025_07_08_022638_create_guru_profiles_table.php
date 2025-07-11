@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('guru_profiles', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('user_id')->constrained()->onDelete('cascade');
-                $table->string('nip')->unique();
+                $table->string('nama')->unique();
                 $table->string('mapel');
                 $table->string('telepon')->nullable();
                 $table->string('alamat')->nullable();

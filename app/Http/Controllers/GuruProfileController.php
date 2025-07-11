@@ -24,7 +24,7 @@ class GuruProfileController extends Controller
 {
     $request->validate([
         'user_id' => 'required|exists:users,id',
-        'nip'     => 'required|string|max:50|unique:guru_profiles,nip',
+        'nama'     => 'required|string|max:50|unique:guru_profiles,nama',
         'mapel'   => 'required|string|max:100',
         'telepon' => 'nullable|string|max:20',
         'alamat'  => 'nullable|string|max:255',
@@ -54,7 +54,7 @@ class GuruProfileController extends Controller
 
     $request->validate([
         'user_id' => 'required|numeric',
-        'nip' => 'required|unique:guru_profiles,nip,' . $guru->id,
+        'nama' => 'required|unique:guru_profiles,nama,' . $guru->id,
         'mapel' => 'required|string|max:255',
         'alamat' => 'nullable|string',
         'telepon' => 'nullable|string|max:20',
@@ -62,7 +62,7 @@ class GuruProfileController extends Controller
 
     $guru->update([
         'user_id' => $request->user_id,
-        'nip' => $request->nip,
+        'nama' => $request->nama,
         'mapel' => $request->mapel,
         'alamat' => $request->alamat,
         'telepon' => $request->telepon,

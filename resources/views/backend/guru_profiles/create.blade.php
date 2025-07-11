@@ -23,10 +23,6 @@
                             </select>
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">NIP</label>
-                            <input type="text" class="form-control" name="nip" required>
-                        </div>
 
                         <div class="mb-3">
                             <label class="form-label">Nama</label>

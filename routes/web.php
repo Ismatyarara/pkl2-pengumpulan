@@ -1,15 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\BackendController;
+use App\Http\Controllers\Backend\TugasProjekAkhirController;
+use App\Http\Controllers\FormKelasController;
+use App\Http\Controllers\GuruProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\GuruProfileController;
-use App\Http\Controllers\FormKelasController;
 use App\Http\Controllers\SiswaProfileController;
-use App\Http\Controllers\BackendController;
+use App\Http\Controllers\ProyekAnggotaController;
+use App\Http\Controllers\TugasController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\Admin;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 // Halaman utama
 Route::get('/', function () {
@@ -44,21 +47,21 @@ Route::middleware(['auth', Admin::class])
         // 👇 Tambahkan route user CRUD untuk admin
         Route::resource('user', UserController::class);
         Route::post('/user', [UserController::class, 'store'])->name('user.store');
-           Route::post('/user', [UserController::class, 'store'])->name('user.update');
-
+        Route::post('/user', [UserController::class, 'store'])->name('user.update');
 
         //Kamu juga bisa pindahin resource lain kalau emang hanya admin yang akses:
         Route::resource('guru_profiles', GuruProfileController::class);
-         Route::post('/guru_profiles', [GuruProfileController::class, 'store'])->name('guru_profiles.store');
-
-
+        Route::post('/guru_profiles', [GuruProfileController::class, 'store'])->name('guru_profiles.store');
 
         Route::resource('siswa_profiles', SiswaProfileController::class);
 
+        Route::resource('form_kelas', FormKelasController::class);
+        Route::resource('tugas', TugasController::class);
+        Route::resource('tugas_projek_akhir', TugasProjekAkhirController::class);
+        Route::resource('proyekanggota', ProyekAnggotaController::class);
 
-         Route::resource('form_kelas', FormKelasController::class);
+
     });
-
 
 Auth::routes();
 

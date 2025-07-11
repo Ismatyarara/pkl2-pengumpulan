@@ -9,7 +9,7 @@ class GuruProfile extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','nip', 'mapel', 'telepon', 'alamat'];
+    protected $fillable = ['user_id','nama', 'mapel', 'telepon', 'alamat'];
     protected $table = 'guru_profiles'; // ganti ini sesuai nama tabel di migration
     public $timestamps = true;
 
@@ -17,4 +17,6 @@ class GuruProfile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    
 }

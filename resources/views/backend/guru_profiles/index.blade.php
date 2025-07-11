@@ -30,7 +30,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>User</th>
-                                    <th>NIP</th>
+                                    <th>Nama</th>
                                     <th>Mapel</th>
                                     <th>Telepon</th>
                                     <th>Alamat</th>
@@ -42,7 +42,7 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $guru->user->name ?? '-' }}</td>
-                                        <td>{{ $guru->nip }}</td>
+                                        <td>{{ $guru->nama }}</td>
                                         <td>{{ $guru->mapel }}</td>
                                         <td>{{ $guru->telepon ?? '-' }}</td>
                                         <td>{{ $guru->alamat ?? '-' }}</td>

@@ -40,16 +40,17 @@ class FormKelasController extends Controller
     // Detail data (opsional)
     public function show($id)
     {
-        $form = FormKelas::with('guru')->findOrFail($id);
-        return view('backend.form_kelas.show', compact('form'));
+        $form_kelas = FormKelas::with('guru')->findOrFail($id);
+       return view('backend.form_kelas.show', compact('form_kelas'));
     }
 
     // Tampilkan form edit
     public function edit($id)
     {
-        $form = FormKelas::findOrFail($id);
-        $gurus = GuruProfile::all();
-        return view('backend.form_kelas.edit', compact('form', 'guru'));
+      $form_kelas = FormKelas::findOrFail($id);
+    $guruList = GuruProfile::all(); 
+
+    return view('backend.form_kelas.edit', compact('form_kelas', 'guruList'));
     }
 
     // Update data
